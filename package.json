@@ -1,0 +1,21 @@
+{
+  "name": "try-xapi-requests",
+  "version": "0.0.1",
+  "description": "try simple xapi requests from a form",
+  "homepage": "",
+  "private": true,
+  "author": "@RoboSparrow (jboeselt)",
+  "licenses": {
+    "type": "",
+    "url": ""
+  },
+  "dependencies": {
+    "lx-request": "git+https://github.com/RoboSparrow/lx-request.git"
+  },
+  "devDependencies": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RoboSparrow/try-xapi-requests.git"
+  }
+}

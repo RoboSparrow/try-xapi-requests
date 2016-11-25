@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang=en-us>
+    <head>
+        <meta charset=utf-8>
+        <title>getStatements</title>
+        <meta name="description" content="">
+
+        <!-- twitter bootstrap -->
+        <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc=" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <!-- xapi request-->
+        <script src="./config.lrs.js"></script>
+        <script src="./node_modules/lx-request/req.js"></script>
+        <script src="./node_modules/lx-request/req.xapi.js"></script>
+        <!-- app -->
+        <link rel="stylesheet" type="text/css" href="./main.css" />
+        <script src="./main.js"></script>
+
+    </head>
+
+    <body>
+        <div class="container">
+
+            <h1>Test xAPI</h1>
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6">
+                        <pre id="current-lrs"></pre>
+                    </div>
+                    <div class="col-md-6">
+                        <form id="lrs-config-form">
+                            <div class="form-group">
+                                <select name="endpoint"></select>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active">
+                    <a href="#statements-get" aria-controls="home" role="tab" data-toggle="tab">/statements GET</a>
+                </li>
+                <li role="presentation">
+                    <a href="#statements-post" aria-controls="profile" role="tab" data-toggle="tab">/statements POST</a>
+                </li>
+                <li role="presentation">
+                    <a href="#statements-put" aria-controls="profile" role="tab" data-toggle="tab">/statements PUT</a>
+                </li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+
+                <div role="tabpanel" class="tab-pane active" id="statements-get">
+
+                    <form id="statement-get">
+                        <input type="hidden" name="method" value="GET">
+                        <fieldset class="form-group">
+                            <textarea name="query" class="form-control">
+{
+
+}
+                            </textarea>
+                        </fieldset>
+
+                        <fieldset class="form-group">
+                            <label>
+                                <input name="invalidJson" type="checkbox"> Allow sending invalid JSON
+                            </label>
+                        </fieldset>
+
+                        <fieldset class="form-group">
+                            <input type="submit" value="GET statement">
+                        </fieldset>
+
+                        <div class="alert"></div>
+                        <pre class="result"></pre>
+                    </form>
+
+                </div>
+
+                <div role="tabpanel" class="tab-pane" id="statements-post">
+
+                    <form id="statement-post">
+                        <input type="hidden" name="method" value="POST">
+                        <fieldset class="form-group">
+                            <textarea name="data" class="form-control">
+{
+    "actor": {
+        "mbox": "mailto: anonymous@brightcookie.com.au"
+    },
+    "verb":{
+        "id": "http://adlnet.gov/expapi/verbs/attempted"
+    },
+    "object":{
+        "id": "http://lxhive.com/xapi/activities/send-statement"
+    }
+}
+                            </textarea>
+                        </fieldset>
+
+                        <fieldset class="form-group">
+                            <label>
+                                <input name="invalidJson" type="checkbox"> Allow sending invalid JSON
+                            </label>
+                        </fieldset>
+
+                        <fieldset class="form-group">
+                            <input type="submit" value="POST statement">
+                        </fieldset>
+
+                        <div class="alert"></div>
+                        <pre class="result"></pre>
+                    </form>
+
+                </div>
+
+            <div role="tabpanel" class="tab-pane" id="statements-put">
+
+                <form id="statement-put">
+                    <input type="hidden" name="method" value="PUT">
+                    <fieldset class="form-group">
+                        <label for="statementId">statementId</label>
+                        <input type="text" name="statementId" class="form-control" value="">
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <textarea name="data" class="form-control">
+{
+"actor": {
+    "mbox": "mailto: anonymous@brightcookie.com.au"
+},
+"verb":{
+    "id": "http://adlnet.gov/expapi/verbs/attempted"
+},
+"object":{
+    "id": "http://lxhive.com/xapi/activities/send-statement"
+}
+}
+                        </textarea>
+                    </fieldset>
+
+                    <fieldset class="form-group">
+                        <label>
+                            <input name="invalidJson" type="checkbox"> Allow sending invalid JSON
+                        </label>
+                    </fieldset>
+
+                    <fieldset class="form-group">
+                        <input type="submit" value="PUT statement">
+                    </fieldset>
+
+                    <div class="alert"></div>
+                    <pre class="result"></pre>
+                </form>
+
+            </div>
+        </div>
+
+    </body>
+
+</html>

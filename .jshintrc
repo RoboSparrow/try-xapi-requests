@@ -1,0 +1,17 @@
+{
+
+    "curly": true,
+    "funcscope": true,
+    "undef": true,
+    "unused": true,
+    "jquery": false,
+    "mocha": true,
+    "node": false,
+    "browser": true,
+    "esversion": 6,
+    "globals": {
+        "console": true,
+        "document": true,
+        "window": true
+    }
+}
